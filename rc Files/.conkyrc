@@ -1,0 +1,112 @@
+conky.config = {
+    alignment = 'top_right',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    override_utf8_locale = true,
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    xftalpha = 1.0,
+    total_run_times = 0,
+    gap_x = 30,
+    gap_y = 20,
+    minimum_height = 500,
+    minimum_width =240,
+    maximum_width = 260,
+    net_avg_samples = 2,
+    own_window = true,
+    own_window_transparent = true,
+    own_window_type = 'dock',
+    own_window_class = 'Conky',
+    own_window_argb_visual = true,
+    own_window_argb_value = 255,
+    own_window_colour = '#000',
+    own_window_hints = 'below,sticky,skip_taskbar,undecorated,skip_pager',
+    double_buffer = true,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = true,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+    font = 'Prime',
+}
+
+conky.text = [[
+
+${color grey}$alignc${font Prime:weight=bold:size=22}${time %H:%M}
+
+${font Prime}${color grey}Kernel $color$alignr$kernel
+${color grey}Distro $color$alignr${exec lsb_release -ds | sed 's/"//g'}
+${color grey}Res $color$alignr${exec xdpyinfo | awk '/dimensions/{print $2}'}
+
+${color grey}Frequency $color$alignr$freq_g Ghz
+
+${color grey}Core 0 $color$alignr${execi 5 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C
+${color grey}Core 1 $color$alignr${execi 5 sensors|grep 'Core 1'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C
+${color grey}Core 2 $color$alignr${execi 5 sensors|grep 'Core 2'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C
+${color grey}Core 3 $color$alignr${execi 5 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C
+
+
+${color grey}RAM $color$alignr$mem/$memmax
+${color #BEC8CB}${membar 4}
+${color grey}Swap $color$alignr$swap/$swapmax
+${color #BEC8CB}${swapbar 4}
+${color grey}CPU $color$alignr$cpu%
+${color #BEC8CB}${cpubar 4}
+
+
+Root $color$alignr${fs_used /}/${fs_size /}
+${color #BEC8CB}${fs_bar 4 /}
+Home $color$alignr${fs_used /home}/${fs_size /home}
+${color #BEC8CB}${fs_bar 4 /home}
+
+
+${color grey}Battery $color$alignr${battery_percent BAT0}%
+${color #BEC8CB}${battery_bar 4 BAT0}
+${color grey}Status $alignr${if_existing /sys/class/power_supply/BAT0/status Charging}${color #7cfc00}Charging${else}${if_existing /sys/class/power_supply/BAT0/status Discharging}${color #ffbf00}Discharging${else}${if_existing /sys/class/power_supply/BAT0/status Full}${color #1e90ff}Full${else}${if_existing /sys/class/power_supply/BAT0/status Unknown}${color #1e90ff}Full${endif}${endif}${endif}${endif}
+
+
+${color grey}Network $alignr$color${if_existing /sys/class/net/eth0/operstate up}Ethernet${else}${if_existing /sys/class/net/wlan0/operstate up}Wlan${else}${if_up usb0}USB${else}${if_existing /proc/net/route wlp59s0} $wireless_essid (WIFI)${else}None${endif}${endif}${endif}${endif}
+${if_existing /sys/class/net/eth0/operstate up}
+
+${color grey}Up $color$alignr${upspeedf eth0}
+${color grey}${upspeedgraph eth0 25 #BEC8CB}
+${color grey}Down $color$alignr${downspeedf eth0}
+${color grey}${downspeedgraph eth0 25 #BEC8CB}
+${endif}${if_existing /sys/class/net/wlan0/operstate up}
+
+${color grey}Up $color$alignr${upspeedf wlan0}
+${color grey}${upspeedgraph wlan0 25 #BEC8CB}
+${color grey}Down $color$alignr${downspeedf wlan0}
+${color grey}${downspeedgraph wlan0 25 #BEC8CB}
+${endif}${if_up usb0}
+
+${color grey}Up $color$alignr${upspeedf usb0}
+${color grey}${upspeedgraph usb0 25 #BEC8CB}
+${color grey}Down $color$alignr${downspeedf usb0}
+${color grey}${downspeedgraph usb0 25 #BEC8CB}
+${endif}${if_existing /proc/net/route wlp59s0}
+
+${color grey}Up $color$alignr${upspeedf wlp59s0}
+${color grey}${upspeedgraph wlp59s0 25 #BEC8CB}
+${color grey}Down $color$alignr${downspeedf wlp59s0}
+${color grey}${downspeedgraph wlp59s0 25 #BEC8CB}
+${endif}
+
+${color grey}Processes ${alignr}PID
+$color${top name 1} $alignr${top pid 1}
+$color${top name 2} $alignr${top pid 2}
+$color${top name 3} $alignr${top pid 3}
+$color${top name 4} $alignr${top pid 4}
+]]
