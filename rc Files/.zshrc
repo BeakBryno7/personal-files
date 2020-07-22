@@ -1,4 +1,4 @@
-#Gitstatusd
+# Gitstatusd
 
 POWERLEVEL9K_DISABLE_GITSTATUS="true"
 
@@ -121,6 +121,10 @@ if [ -f ${HOME}/.zplug/init.zsh ]; then
     source ${HOME}/.zplug/init.zsh
 fi
 
+# Fuzzy search
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/gitstatus/gitstatus.prompt.zsh
 
 zplug load # --verbose
 
@@ -135,7 +139,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 
 # Enhancd
-zplug "b4b4r07/enhancd", at:v1
+zplug "b4b4r07/enhancd", use:init.sh
 
 # Auto-pair
 zplug "hlissner/zsh-autopair", defer:2
@@ -148,9 +152,3 @@ zplug load
 
 alias ls='colorls -a'
 alias lt='colorls --tree'
-
-
-# Fuzzy search
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/gitstatus/gitstatus.prompt.zsh
