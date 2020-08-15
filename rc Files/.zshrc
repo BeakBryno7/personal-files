@@ -1,12 +1,6 @@
-#Instant start
-
-source ~/instant-zsh.zsh
-instant-zsh-pre "%n@%m %~%# "
-
-
 # Gitstatusd
 
-POWERLEVEL9K_DISABLE_GITSTATUS="true"
+POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 # Sourcing Powerlevel10k
 
@@ -159,8 +153,3 @@ zplug load
 alias ls='colorls -a'
 alias lt='colorls --tree'
 source ~/gitstatus/gitstatus.prompt.zsh
-
-
-# Prompt
-
-instant-zsh-post
