@@ -1,3 +1,9 @@
+#Instant start
+
+source ~/instant-zsh.zsh
+instant-zsh-pre "%n@%m %~%# "
+
+
 # Gitstatusd
 
 POWERLEVEL9K_DISABLE_GITSTATUS="true"
@@ -148,7 +154,13 @@ zplug "hlissner/zsh-autopair", defer:2
 zplug load
 
 
-#alias
+# Alias
 
 alias ls='colorls -a'
 alias lt='colorls --tree'
+source ~/gitstatus/gitstatus.prompt.zsh
+
+
+# Prompt
+
+instant-zsh-post
