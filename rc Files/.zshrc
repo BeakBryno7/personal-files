@@ -1,8 +1,8 @@
-# Gitstatusd
-POWERLEVEL9K_DISABLE_GITSTATUS=true
-
 # Sourcing Powerlevel10k
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# Gitstatusd
+POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -19,7 +19,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source ~/gitstatus/gitstatus.prompt.zsh
 
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
