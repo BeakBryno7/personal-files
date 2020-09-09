@@ -1,9 +1,6 @@
 # Sourcing Powerlevel10k
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# Gitstatusd
-POWERLEVEL9K_DISABLE_GITSTATUS=true
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -11,7 +8,7 @@ fi
 export ZSH=$HOME/.oh-my-zsh
 
 plugins=(git adb pip)
-autoload -U compinit && compinit
+
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -25,7 +22,7 @@ source "${HOME}/.zgen/zgen.zsh"
 
 # if the init script doesn't exist
 if ! zgen saved; then
-  
+
   # Fish-like autosuggestions for zsh
   zgen load zsh-users/zsh-history-substring-search
   # Includes syntax highlighting
