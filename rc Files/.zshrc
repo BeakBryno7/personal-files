@@ -25,9 +25,7 @@ source "${HOME}/.zgen/zgen.zsh"
 
 # if the init script doesn't exist
 if ! zgen saved; then
-
-  # specify plugins here
-  zgen load oh-my-zsh
+  
   # Fish-like autosuggestions for zsh
   zgen load zsh-users/zsh-history-substring-search
   # Includes syntax highlighting
