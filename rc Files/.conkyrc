@@ -72,6 +72,14 @@ Home $color$alignr${fs_used /home}/${fs_size /home}
 ${color #BEC8CB}${fs_bar 4 /home}
 
 
+Drive 0 $color$alignr${fs_used /media/xamp/Drive 0/}/${fs_size /media/xamp/Drive 0/}
+${color #BEC8CB}${fs_bar 4 /media/xamp/Drive 0/}
+Drive 1 $color$alignr${fs_used /media/xamp/Drive 1/}/${fs_size /media/xamp/Drive 1/}
+${color #BEC8CB}${fs_bar 4 /media/xamp/Drive 1/}
+Drive 2 $color$alignr${fs_used /media/xamp/Drive 2/}/${fs_size /media/xamp/Drive 2/}
+${color #BEC8CB}${fs_bar 4 /media/xamp/Drive 2/}
+
+
 ${color grey}Battery $color$alignr${battery_percent BAT0}%
 ${color #BEC8CB}${battery_bar 4 BAT0}
 ${color grey}Status $alignr${if_existing /sys/class/power_supply/BAT0/status Charging}${color #7cfc00}Charging${else}${if_existing /sys/class/power_supply/BAT0/status Discharging}${color #ffbf00}Discharging${else}${if_existing /sys/class/power_supply/BAT0/status Full}${color #1e90ff}Full${else}${if_existing /sys/class/power_supply/BAT0/status Unknown}${color #1e90ff}Full${endif}${endif}${endif}${endif}
