@@ -1,6 +1,6 @@
   - Tutorial
-	- If you're on Linux: `$HOME/.mozilla/firefox/XXXXXXX.default-release/`
-	- If you're on Windows: `C:\Users\<USERNAME>\AppData\Roaming\Mozilla\Firefox\Profiles\XXXXXXX.default-XXXXXX`
+	- If you're on Linux: `$HOME/.mozilla/firefox/XXXXXXX.default-release/chrome/`
+	- If you're on Windows: `C:\Users\<USERNAME>\AppData\Roaming\Mozilla\Firefox\Profiles\XXXXXXX.default-XXXXXX\chrome\`
 
   - about:config : true
 	- toolkit.legacyUserProfileCustomizations.stylesheets
