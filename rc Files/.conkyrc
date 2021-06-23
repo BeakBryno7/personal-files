@@ -60,7 +60,7 @@ ${color grey}Core 3 $color$alignr${execi 5 sensors|grep 'Core 3'| awk -F'+' '{pr
 ${color grey}RAM $color$alignr$mem/$memmax
 ${color #BEC8CB}${membar 4}
 ${color grey}CPU $color$alignr$cpu%
-${cpugraph cpu0 25 #BEC8CB}
+${cpugraph cpu0 25 BEC8CB}
 
 
 Root $color$alignr${fs_used /}/${fs_size /}
