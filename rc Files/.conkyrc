@@ -46,9 +46,8 @@ conky.text = [[
 
 ${color grey}$alignc${font Prime:weight=bold:size=22}${time %H:%M}
 
-${font Prime}${color grey}Kernel $color$alignr$kernel
+${font Prime}
 ${color grey}Distro $color$alignr${exec lsb_release -ds | sed 's/"//g'}
-${color grey}Res $color$alignr${exec xdpyinfo | awk '/dimensions/{print $2}'}
 
 ${color grey}Frequency $color$alignr$freq_g Ghz
 
@@ -60,10 +59,8 @@ ${color grey}Core 3 $color$alignr${execi 5 sensors|grep 'Core 3'| awk -F'+' '{pr
 
 ${color grey}RAM $color$alignr$mem/$memmax
 ${color #BEC8CB}${membar 4}
-${color grey}Swap $color$alignr$swap/$swapmax
-${color #BEC8CB}${swapbar 4}
 ${color grey}CPU $color$alignr$cpu%
-${color #BEC8CB}${cpubar 4}
+${cpugraph cpu0 25 #BEC8CB}
 
 
 Root $color$alignr${fs_used /}/${fs_size /}
